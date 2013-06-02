@@ -1,0 +1,30 @@
+[user]
+	name = Christopher Stingl
+	email = cjstingl@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+
+[color "diff"]
+	meta = yellow
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim --noplugin
+[apply]
+	whitespace = nowarn
+
+[alias]
+      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[help]
+	autocorrect = 1
+[branch]
+	autosetupmerge = true
+        autosetuprebase = always
+[push]
+	default = current
+[github]
+	user = aleatorik
+[merge]
+        ff = only
