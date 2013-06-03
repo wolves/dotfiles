@@ -32,6 +32,8 @@ task :install do
   puts "Linking public ssh key"
   system %Q{rm "$HOME/.ssh/id_dsa.pub"}
   system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
+
+  system %Q{mkdir ~/.tmp}
 end
 
 
