@@ -6,6 +6,33 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias bake='bundle exec rake'
+alias bi='bundle install'
+alias be='bundle exec'
 alias d='cd ~/.dotfiles'
+
 alias gad='git add .'
+alias gadu='git add -u .'
+alias gca='git commit -a'
+alias gcaa='git commit -a --amend -C HEAD'
+alias gcl='git clone'
+alias gcm="git commit -m"
+alias gco='git checkout'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdm='git diff master'
+alias get='sudo apt-get install'
+alias gl='git log --oneline --graph --decorate'
+alias gpush='echo "Use gp!" && git push'
+alias gp='git push'
+alias gpf='git push -f'
+alias gpr='git pull --rebase'
+alias grc='git rebase --continue'
+alias gs='git status --short --branch'
+
+alias rc='rails console'
+alias rdm="be rake db:migrate"
+alias rdtp="be rake db:test:prepare"
+
 alias so='source ~/.dotfiles/zsh/aliases'
