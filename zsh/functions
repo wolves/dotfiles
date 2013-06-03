@@ -5,6 +5,7 @@ function g {
     git status
   fi
 }
+compdef g=git
 
 # Allows commit message without typing quotes (can't have quotes in the commit msg though).
 function gc {
