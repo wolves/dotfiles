@@ -61,7 +61,11 @@ set laststatus=2  " Always show status line.
 set relativenumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
+
+" Color Scheme
+let g:solarized_termcolors=256
 set bg=light
+colorscheme solarized
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
