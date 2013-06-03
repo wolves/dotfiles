@@ -20,6 +20,9 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/ruby-matchit'
 
+" Color Scheme
+Bundle 'altercation/vim-colors-solarized'
+
 " ================
 " Ruby stuff
 " ================
