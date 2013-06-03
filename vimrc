@@ -16,9 +16,15 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/ruby-matchit'
+Bundle 'thoughtbot/vim-rspec'
+
+" Ag search functionality for Vim
+Bundle 'rking/ag.vim'
 
 " Color Scheme
 Bundle 'altercation/vim-colors-solarized'
