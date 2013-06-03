@@ -36,3 +36,4 @@ alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 
 alias so='source ~/.dotfiles/zsh/aliases'
+alias thera='cd ~/Thera/code/therapydia'
