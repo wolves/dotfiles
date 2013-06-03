@@ -11,6 +11,7 @@ alias bake='bundle exec rake'
 alias bi='bundle install'
 alias be='bundle exec'
 alias d='cd ~/.dotfiles'
+alias drop='cd ~/Dropbox'
 
 alias gad='git add .'
 alias gadu='git add -u .'
