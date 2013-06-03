@@ -43,11 +43,18 @@ SAVEHIST=20000
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# RBENV
+eval "$(rbenv init -)"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git rbenv)
 
 source $ZSH/oh-my-zsh.sh
+
+# Source my custom files after oh-my-zsh so I can override things.
+source $HOME/.dotfiles/zsh/aliases
+source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
