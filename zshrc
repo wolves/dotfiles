@@ -7,6 +7,9 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# Never know when you're gonna need to popd!
+setopt AUTO_PUSHD
+
 # Show contents of directory after cd-ing into it
 chpwd() {
   ls -lrthG
