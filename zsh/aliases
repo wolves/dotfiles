@@ -12,7 +12,6 @@ alias bi='bundle install'
 alias be='bundle exec'
 alias d='cd ~/.dotfiles'
 alias drop='cd ~/Dropbox'
-
 alias gad='git add .'
 alias gadu='git add -u .'
 alias gca='git commit -a'
@@ -31,11 +30,9 @@ alias gpf='git push -f'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
 alias gs='git status --short --branch'
-
 alias rc='rails console'
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
-
 alias so='source ~/.dotfiles/zsh/aliases'
 alias thera='cd ~/Thera/code/therapydia'
 alias tl='task list'
