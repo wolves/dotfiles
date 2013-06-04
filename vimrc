@@ -115,6 +115,12 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=1
 
+" Remap Split Pane Movement Keys
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
