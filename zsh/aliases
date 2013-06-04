@@ -38,4 +38,4 @@ alias rdtp="be rake db:test:prepare"
 alias so='source ~/.dotfiles/zsh/aliases'
 alias thera='cd ~/code/therapydia'
 alias tl='task list'
-alias tad='task add'
+alias tt='task add'
