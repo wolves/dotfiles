@@ -115,6 +115,9 @@ set noesckeys
 set ttimeout
 set ttimeoutlen=1
 
+" No audible bell
+set vb
+
 " Remap Split Pane Movement Keys
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
