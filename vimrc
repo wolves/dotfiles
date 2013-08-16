@@ -70,8 +70,8 @@ set gdefault " assume the /g flag on :s substitutions to replace all matches in 
 set autoindent " always set autoindenting on
 
 " Color Scheme
-let g:solarized_termcolors=256
-set bg=light
+syntax enable
+set bg=dark
 colorscheme solarized
 
 " Use Silver Searcher instead of grep
