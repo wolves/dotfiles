@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'slim-template/vim-slim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -29,6 +30,7 @@ Bundle 'rking/ag.vim'
 
 " Color Scheme
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 " ================
 " Ruby stuff
@@ -72,7 +74,7 @@ set autoindent " always set autoindenting on
 " Color Scheme
 syntax enable
 set bg=dark
-colorscheme solarized
+colorscheme tomorrow-night
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
