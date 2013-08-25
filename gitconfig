@@ -21,10 +21,12 @@
 	autocorrect = 1
 [branch]
 	autosetupmerge = true
-        autosetuprebase = always
+	autosetuprebase = always
 [push]
 	default = current
 [github]
 	user = aleatorik
+[rerere]
+	enabled = 1
 [merge]
         ff = only
