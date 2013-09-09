@@ -5,6 +5,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+	ui = true
 
 [color "diff"]
 	meta = yellow
@@ -23,7 +24,7 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [push]
-	default = current
+	default = matching
 [github]
 	user = aleatorik
 [rerere]
