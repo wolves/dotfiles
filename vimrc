@@ -63,7 +63,7 @@ set autoread
 set wmh=0
 set viminfo+=!
 set guioptions-=T
-set guifont=Inconsolata:h10
+set guifont=Source\ Code\ Pro:h12
 set et
 set sw=2
 set smarttab
@@ -77,7 +77,8 @@ set autoindent " always set autoindenting on
 " Color Scheme
 syntax enable
 set bg=dark
-colorscheme tomorrow-night
+set t_Co=256
+colorscheme toychest
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
