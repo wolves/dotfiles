@@ -78,7 +78,8 @@ set autoindent " always set autoindenting on
 syntax enable
 set bg=dark
 set t_Co=256
-colorscheme toychest
+let g:solarized_contrast="low"
+colorscheme solarized
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
