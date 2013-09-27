@@ -65,7 +65,7 @@ source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
 # if [ -f /Users/shinigami/.idg_profile ]; then . /Users/shinigami/.idg_profile; fi
 eval "$($HOME/source/idg/bin/idg init -)"
