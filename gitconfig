@@ -29,5 +29,3 @@
 	user = aleatorik
 [rerere]
 	enabled = 1
-[merge]
-        ff = only
