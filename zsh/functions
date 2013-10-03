@@ -11,3 +11,11 @@ compdef g=git
 function gc {
   git commit -m "$*"
 }
+
+n() {
+  $EDITOR ~/notes/"$*".txt
+}
+
+nls() {
+  ls -c ~/notes/ | ag "$*"
+}
