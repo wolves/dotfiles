@@ -1,4 +1,7 @@
-# Path to your oh-my-zsh configuration.
+#Set default editor to Vim
+export EDITOR=/usr/local/bin/vim
+
+## Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
