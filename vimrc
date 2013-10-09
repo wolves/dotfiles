@@ -29,6 +29,7 @@ Bundle 'vim-scripts/ruby-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'vim-scripts/ruby-matchit'
 Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'elixir-lang/vim-elixir'
 
 " Ag search functionality for Vim
 Bundle 'rking/ag.vim'
