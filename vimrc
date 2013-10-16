@@ -40,6 +40,19 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
 
 " ================
+" CtrlP Stuff
+" ================
+
+" Set no max file limit
+let g:ctrlp_max_files = 0
+" Search from current directory instead of project root
+let g:ctrlp_working_path_mode = 0
+
+" Ignore these directories
+set wildignore+=*/out/**
+set wildignore+=*/vendor/**
+
+" ================
 " Ruby stuff
 " ================
 syntax on                 " Enable syntax highlighting
