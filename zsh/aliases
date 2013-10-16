@@ -45,6 +45,7 @@ alias peep='cd ~/_learn/videos/PeepCode'
 alias rc='rails console'
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
+alias rpsites="cd /usr/local/etc/nginx/sites"
 alias rvs="cd ~/code/rvs"
 alias so='source ~/.dotfiles/zsh/aliases'
 alias thera='cd ~/code/therapydia'
