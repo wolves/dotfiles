@@ -37,6 +37,7 @@ Bundle 'rking/ag.vim'
 " Color Scheme
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'chriskempson/base16-vim'
 
 " ================
 " Ruby stuff
@@ -80,9 +81,7 @@ set autoindent " always set autoindenting on
 " Color Scheme
 syntax enable
 set bg=dark
-set t_Co=256
-let g:solarized_contrast="low"
-colorscheme solarized
+colorscheme base16-monokai
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
