@@ -95,6 +95,7 @@ set laststatus=2  " Always show status line.
 set relativenumber
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
+set showbreak=↪
 
 " Color Scheme
 syntax enable
