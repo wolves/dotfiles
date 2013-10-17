@@ -35,6 +35,7 @@ Bundle 'airblade/vim-gitgutter'
 " General text editing
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
+Bundle 'Shougo/neocomplcache'
 
 " General Vim Improvements
 Bundle 'rking/ag.vim'
