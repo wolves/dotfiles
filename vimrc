@@ -1,3 +1,76 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" =============== General Config ==================
+set nu
+set relativenumber
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set history=1000	        " keep 500 lines of command line history
+set ruler		        " show the cursor position all the time
+set showcmd		        " display incomplete commands
+set laststatus=2                " Always show status line.
+set gdefault                    " assume the /g flag on :s substitutions to replace all matches in a line
+set visualbell                  " No audible bell
+set autoread
+set wmh=0                       " Sets the minimum window height to 0
+set showmatch
+set viminfo+=!
+set guioptions-=T
+set expandtab
+set noincsearch
+set ignorecase smartcase
+set grepprg=ag                  " Use Silver Searcher instead of grep
+set noesckeys                   " Get rid of the delay when hitting esc!
+set shiftround                  " When at 3 spaces and I hit >>, go to 4, not 5.
+
+" (Hopefully) removes the delay when hitting esc in insert mode
+set noesckeys
+set ttimeout
+set ttimeoutlen=1
+
+" Bindings
+command! Q q " Bind :Q to :q
+command! Qall qall 
+
+map Q <Nop>                     " Disable Ex mode
+map K <Nop>                     " Disable K looking stuff up
+
+" Remap Split Pane Movement Keys
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Highlight the status line
+highlight StatusLine ctermfg=blue ctermbg=yellow
+
+" Format xml files
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
+
+" When loading text files, wrap them and don't split up words.
+au BufNewFile,BufRead *.txt setlocal wrap 
+au BufNewFile,BufRead *.txt setlocal lbr
+
+" Cursor Position Highlighting
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+let mapleader = ","
+
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundle.vim
 " Use Vundle plugin to manage all other plugins
@@ -6,7 +79,6 @@ if filereadable(expand("~/.vim/vundles.vim"))
 endif
 
 " ================ Turn Off Swap Files ==============
-
 set noswapfile
 set nobackup
 set nowb
@@ -19,23 +91,42 @@ silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set undodir=~/.vim/backups
 set undofile
 
-" ================
-" CtrlP Stuff
-" ================
+" =============== Indentation ===============
 
-" Set no max file limit
-let g:ctrlp_max_files = 0
-" Search from current directory instead of project root
-let g:ctrlp_working_path_mode = 0
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
 
-" Ignore these directories
-set wildignore+=*/out/**
-set wildignore+=*/vendor/**
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+set showbreak=↪
+
+" ================ Folds ============================
+
+set nofoldenable                " Say no to code folding...
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                    "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~     "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
 " ================
 " Ruby stuff
 " ================
-syntax on                 " Enable syntax highlighting
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 augroup myfiletypes
@@ -44,104 +135,11 @@ augroup myfiletypes
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
-" ================
-
-let mapleader = ","
-let g:mapleader = ","
-
-set nocompatible
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set autoindent
-set showmatch
-set nowrap
-set backupdir=~/.tmp
-set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
-set autoread
-set wmh=0
-set viminfo+=!
-set guioptions-=T
-set guifont=Source\ Code\ Pro:h12
-set et
-set sw=2
-set smarttab
-set noincsearch
-set ignorecase smartcase
-set laststatus=2  " Always show status line.
-set nu
-set relativenumber
-set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-set autoindent " always set autoindenting on
-set showbreak=↪
-
-" Color Scheme
-syntax enable
-set bg=dark
-colorscheme base16-monokai
-
-" Use Silver Searcher instead of grep
-set grepprg=ag
-
-" Get rid of the delay when hitting esc!
-set noesckeys
-
-" Fuzzy finder: ignore stuff that can't be opened, and generated files
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
-
-" Highlight the status line
-highlight StatusLine ctermfg=blue ctermbg=yellow
-
-" Format xml files
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
-
-set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
-
-set nofoldenable " Say no to code folding...
-
-command! Q q " Bind :Q to :q
-command! Qall qall 
-
-" Disable Ex mode
-map Q <Nop>
-
-" Disable K looking stuff up
-map K <Nop>
-
-" When loading text files, wrap them and don't split up words.
-au BufNewFile,BufRead *.txt setlocal wrap 
-au BufNewFile,BufRead *.txt setlocal lbr
-
-" Better? completion on command line
-set wildmenu
-" What to do when I press 'wildchar'. Worth tweaking to see what feels right.
-set wildmode=list:full
-
-" (Hopefully) removes the delay when hitting esc in insert mode
-set noesckeys
-set ttimeout
-set ttimeoutlen=1
-
-" No audible bell
-set vb
-
-" Remap Split Pane Movement Keys
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " ========================================================================
 " End of things set by me.
 " ========================================================================
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -168,5 +166,4 @@ if has("autocmd")
     \ endif
 
   augroup END
-
 endif " has("autocmd")
