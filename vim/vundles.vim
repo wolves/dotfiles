@@ -7,32 +7,41 @@ call vundle#rc()
 " Let Vundle manage Vundle (required)!
 Bundle 'gmarik/vundle'
 
+" ========================================================================
 " My bundles
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'slim-template/vim-slim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
+" ========================================================================
+
+" Ruby, Rails, Rake
 Bundle 'tpope/vim-rails'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/ruby-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'vim-scripts/ruby-matchit'
 Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/ruby-matchit'
+
+" Other Languages
 Bundle 'elixir-lang/vim-elixir'
+
+" Html, Xml, Css
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-haml'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-markdown'
+
+" Git
+Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
 
-" Ag search functionality for Vim
+" General text editing
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-endwise'
+
+" General Vim Improvements
 Bundle 'rking/ag.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-surround'
 
-" Color Scheme
+" Cosmetics, color scheme, Powerline...
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'chriskempson/base16-vim'
+Bundle 'bling/vim-airline'
