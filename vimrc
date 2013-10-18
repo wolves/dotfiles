@@ -32,6 +32,7 @@ set ttimeoutlen=1
 " Bindings
 command! Q q " Bind :Q to :q
 command! Qall qall 
+nnoremap <silent> <Leader>/ :nohlsearch<CR>  " Turn off search highlighting
 
 map Q <Nop>                     " Disable Ex mode
 map K <Nop>                     " Disable K looking stuff up
