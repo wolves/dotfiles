@@ -56,9 +56,9 @@ au BufNewFile,BufRead *.txt setlocal wrap
 au BufNewFile,BufRead *.txt setlocal lbr
 
 " Cursor Position Highlighting
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-set cursorline cursorcolumn
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
+set cursorline
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -167,4 +167,6 @@ if has("autocmd")
     \ endif
 
   augroup END
+
+  autocmd BufNewFile,BufRead *.coffee setfiletype coffee
 endif " has("autocmd")
