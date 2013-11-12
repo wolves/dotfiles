@@ -41,6 +41,9 @@ Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 
+" Tmux / Vim Integration
+Bundle 'christoomey/vim-tmux-navigator'
+
 " Cosmetics, color scheme, Powerline...
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
