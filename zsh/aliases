@@ -53,6 +53,7 @@ alias s.="subl ."
 alias so='source ~/.dotfiles/zsh/aliases'
 alias thera='cd ~/code/therapydia'
 alias v='vim'
+alias v.='vim .'
 alias vi='vim'
 alias z='zeus'
 alias zs='zeus start'
