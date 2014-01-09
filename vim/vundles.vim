@@ -23,10 +23,14 @@ Bundle 'vim-scripts/ruby-matchit'
 Bundle 'elixir-lang/vim-elixir'
 
 " Html, Xml, Css
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-markdown'
+
+" Javascript
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mustache/vim-mustache-handlebars'
 
 " Git
 Bundle 'tpope/vim-fugitive'
