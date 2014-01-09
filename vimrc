@@ -169,4 +169,5 @@ if has("autocmd")
   augroup END
 
   autocmd BufNewFile,BufRead *.coffee setfiletype coffee
+  autocmd BufNewFile,BufRead *.slim setfiletype slim
 endif " has("autocmd")
