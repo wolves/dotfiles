@@ -1,6 +1,6 @@
 " Colors & Fonts
-colorscheme base16-monokai
-set bg=dark
+colorscheme base16-solarized
+set bg=light
 
 if has("gui_running")
   "tell the term has 256 colors
