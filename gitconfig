@@ -18,6 +18,7 @@
 
 [alias]
       lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+      tags = for-each-ref --sort=taggerdate --format='%(refname:short)' refs/tags
 [help]
 	autocorrect = 1
 [branch]
