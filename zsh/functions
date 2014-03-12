@@ -12,6 +12,9 @@ function gc {
   git commit -m "$*"
 }
 
+# Killing pumas! (Credit: Zander Hill)
+function kill_pumas() {pgrep puma | xargs kill -9}
+
 n() {
   $EDITOR ~/notes/"$*".txt
 }
