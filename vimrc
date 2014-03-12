@@ -137,6 +137,11 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
+" ================
+" Custom Settings
+" ================
+so ~/.vim/settings.vim
+
 " ========================================================================
 " End of things set by me.
 " ========================================================================
@@ -169,5 +174,6 @@ if has("autocmd")
   augroup END
 
   autocmd BufNewFile,BufRead *.coffee setfiletype coffee
-  autocmd BufNewFile,BufRead *.slim setfiletype slim
+  autocmd BufNewFile,BufRead *.exs setfiletype elixir
+  autocmd BufNewFile,BufRead *.ex setfiletype elixir
 endif " has("autocmd")
