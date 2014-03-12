@@ -39,11 +39,13 @@ Bundle 'airblade/vim-gitgutter'
 " General text editing
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
+Bundle 'godlygeek/tabular'
 
 " General Vim Improvements
 Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
 
 " Tmux / Vim Integration
 Bundle 'christoomey/vim-tmux-navigator'
@@ -51,4 +53,5 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Cosmetics, color scheme, Powerline...
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/base16-vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'bling/vim-airline'
