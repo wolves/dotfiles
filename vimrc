@@ -137,16 +137,16 @@ augroup myfiletypes
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 augroup END
 
-" ===============                                                                                                │
-" Pry Shortcut                                                                                                   │
-" ===============                                                                                                │
-                                                                                                                 │
-if executable('pry')                                                                                             │
-  " Courtesy of rking's ruby-pry.vim                                                                             │
-  " …also, Insert Mode as bpry<space>                                                                            │
-  iabbr bpry require'pry';binding.pry                                                                            │
-  " And pry-remote                                                                                               │
-  iabbr bpryr require'pry-remote';binding.pry_remote                                                             │
+" ===============
+" Pry Shortcut
+" ===============
+
+if executable('pry')
+  " Courtesy of rking's ruby-pry.vim
+  " …also, Insert Mode as bpry<space>
+  iabbr bpry require'pry';binding.pry
+  " And pry-remote
+  iabbr bpryr require'pry-remote';binding.pry_remote
 endif
 
 " ================
