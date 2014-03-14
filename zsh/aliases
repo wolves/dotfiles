@@ -40,6 +40,7 @@ alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
 alias gs='git status --short --branch'
 alias hpush='git push heroku'
+alias mam='cd ~/code/ruby/mammals/'
 alias mm='middleman'
 alias mmi='middleman init'
 alias mux.p="tmux switch -t play"
