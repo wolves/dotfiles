@@ -21,6 +21,7 @@ Bundle 'vim-scripts/ruby-matchit'
 
 " Other Languages
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'rodjek/vim-puppet'
 
 " Html, Xml, Css
 Bundle 'tpope/vim-haml'
