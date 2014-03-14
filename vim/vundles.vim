@@ -47,7 +47,6 @@ Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
 
 " Tmux / Vim Integration
 Bundle 'christoomey/vim-tmux-navigator'
