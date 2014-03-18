@@ -12,6 +12,8 @@ function gc {
   git commit -m "$*"
 }
 
+fe() { find . -type f -exec grep -n -H "$@" {} \;; }
+
 # Killing pumas! (Credit: Zander Hill)
 function kill_pumas() {pgrep puma | xargs kill -9}
 
