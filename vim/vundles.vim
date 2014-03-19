@@ -48,6 +48,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 " Tmux / Vim Integration
 Bundle 'christoomey/vim-tmux-navigator'
