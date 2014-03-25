@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 " ========================================================================
 
 " Ruby, Rails, Rake
+Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-rails'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'vim-scripts/ruby-matchit'
