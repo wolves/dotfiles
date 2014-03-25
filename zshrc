@@ -53,9 +53,6 @@ stty stop undef
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# RBENV
-eval "$(rbenv init -)"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -72,3 +69,6 @@ PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Postg
 
 # if [ -f /Users/shinigami/.idg_profile ]; then . /Users/shinigami/.idg_profile; fi
 eval "$($HOME/source/idg/bin/idg init -)"
+
+# RBENV
+eval "$(rbenv init -)"
