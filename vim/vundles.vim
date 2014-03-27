@@ -20,6 +20,9 @@ Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/ruby-matchit'
 
+" Testing
+Bundle 'skalnik/vim-vroom'
+
 " Other Languages
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'rodjek/vim-puppet'
