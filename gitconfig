@@ -25,7 +25,7 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [push]
-	default = matching
+	default = simple
 [github]
 	user = aleatorik
 [rerere]
