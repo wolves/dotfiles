@@ -11,40 +11,53 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(require 'flycheck)
-(require 'grizzl)
-(require 'projectile)
+;; Always load newest byte code
+(setq load-prefer-newer t)
 
-(require 'coffee-mode)
-(require 'elixir-mode)
-(require 'haml-mode)
-(require 'rspec-mode)
-(require 'sass-mode)
-(require 'slim-mode)
+(defvar cjs-dir (file-name-directory load-file-name)
+  "The root dir.")
+(defvar cjs-core-dir (expand-file-name "custom" cjs-dir)
+  "The dir holding current customization.")
 
-;; use zenburn as the default theme
-(load-theme 'zenburn t)
+;; add Core Custom directories to Emacs's `load-path'
+(add-to-list 'load-path cjs-core-dir)
 
-;; hide toolbar
-(tool-bar-mode -1)
+;; Require various subfiles/namespaces: add them to '(list)
+(mapc (lambda (feature)
+        (require feature nil 'noerror))
+        '(
+          cjs-packages
+          cjs
+          cjs-keybinds
+          ag
+          auto-complete
+          flycheck
+          grizzl
+          projectile
+          undo-tree
+          yasnippet
 
-;; key mappings
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'execute-extended-command)
-
-;; Exec Path from Shell
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-;; Magit
-;;(setq magit-git-executable "/usr/local/bin/git")
-
-;; Projectile
-(projectile-global-mode)
-(setq projectile-completion-system 'grizzl)
+          ;; Modes
+          coffee-mode
+          elixir-mode
+          gitconfig-mode
+          gitignore-mode
+          go-mode
+          haml-mode
+          js2-mode
+          less-css-mode
+          markdown-mode
+          puppet-mode
+          rspec-mode
+          sass-mode
+          slim-mode
+          web-mode
+          yaml-mode
+          cjs-package-configs
+          ))
+;; end auto-install/require packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init)
 ;;; init.el ends here
