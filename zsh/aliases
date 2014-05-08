@@ -59,6 +59,7 @@ alias rva="cd ~/code/ruby/rva"
 alias s.="subl ."
 alias sips="cd ~/code/elixir/_practice/sips/"
 alias so='source ~/.dotfiles/zsh/aliases'
+alias sts='bundle exec guard -i -g server 2>&1'
 alias thera='cd ~/code/ruby/therapydia'
 alias v='vim'
 alias v.='vim .'
