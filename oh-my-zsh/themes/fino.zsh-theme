@@ -30,7 +30,7 @@ if which rvm-prompt &> /dev/null; then
   rvm_ruby='‹$(rvm-prompt i v g)›%{$reset_color%}'
 else
   if which rbenv &> /dev/null; then
-    rvm_ruby='‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
+    rvm_ruby='‹$(rbenv version-name | sed -e "s/ (set.*$//")›%{$reset_color%}'
   fi
 fi
 local current_dir='${PWD/#$HOME/~}'
