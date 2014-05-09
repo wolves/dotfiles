@@ -1,4 +1,4 @@
-export RPROMPT='%{$fg[blue]%}$(rbenv version-name)%{$reset_color%}%'
+#export RPROMPT='%{$fg[blue]%}$(rbenv version-name)%{$reset_color%}%'
 
 # go to saved path if there is one
 if [[ -f ~/.current_path~ ]]; then
