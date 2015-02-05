@@ -6,10 +6,8 @@
 	status = auto
 	branch = auto
 	ui = true
-
 [color "diff"]
 	meta = yellow
-
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim --noplugin
@@ -25,8 +23,9 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [push]
-	default = simple
-[github]
-	user = aleatorik
+	default = current
 [rerere]
 	enabled = 1
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
