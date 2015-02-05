@@ -5,60 +5,60 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Let Vundle manage Vundle (required)!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " ========================================================================
 " My bundles
 " ========================================================================
 
 " Ruby, Rails, Rake
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-rails'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'vim-scripts/ruby-matchit'
-Bundle 'sunaku/vim-ruby-minitest'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/ruby-matchit'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-scripts/ruby-matchit'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/ruby-matchit'
 
 " Testing
-Bundle 'skalnik/vim-vroom'
+Plugin 'skalnik/vim-vroom'
 
 " Other Languages
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'rodjek/vim-puppet'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'rodjek/vim-puppet'
 
 " Html, Xml, Css
-Bundle 'tpope/vim-haml'
-Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-haml'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-markdown'
 
 " Javascript
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mustache/vim-mustache-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Git
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " General text editing
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-endwise'
-Bundle 'godlygeek/tabular'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-endwise'
+Plugin 'godlygeek/tabular'
 
 " General Vim Improvements
-Bundle 'rking/ag.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'rking/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'msanders/snipmate.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " Tmux / Vim Integration
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Cosmetics, color scheme, Powerline...
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/base16-vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'bling/vim-airline'
