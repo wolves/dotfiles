@@ -65,10 +65,11 @@ source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
 # Customize to your needs...
-PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/code/go
 
-# if [ -f /Users/shinigami/.idg_profile ]; then . /Users/shinigami/.idg_profile; fi
-eval "$($HOME/source/idg/bin/idg init -)"
+PATH=/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$GOROOT/bin:$GOPATH/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
 
-# RBENV
-eval "$(rbenv init -)"
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+chruby ruby-2.1.5
