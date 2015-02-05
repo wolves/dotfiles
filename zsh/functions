@@ -12,6 +12,12 @@ function gc {
   git commit -m "$*"
 }
 
+function server() {
+  # local port="{$1:-8000}"
+  open "http://localhost:8000/"
+  python -m SimpleHTTPServer
+}
+
 fe() { find . -type f -exec grep -n -H "$@" {} \;; }
 
 # Killing pumas! (Credit: Zander Hill)
