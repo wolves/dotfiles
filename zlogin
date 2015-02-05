@@ -1,8 +1,8 @@
-function precmd {
-  ruby=$(ruby --version)
-  ver=("${(s/ /)ruby}")
-  export RPROMPT='%{$fg[red]%}$ver[2]%{$reset_color%}%'
-}
+# function precmd {
+#   ruby=$(ruby --version)
+#   ver=("${(s/ /)ruby}")
+#   export RPROMPT='%{$fg[red]%}$ver[2]%{$reset_color%}%'
+# }
 
 # go to saved path if there is one
 if [[ -f ~/.current_path~ ]]; then
