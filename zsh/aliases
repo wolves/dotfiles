@@ -8,6 +8,7 @@ fi
 
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias atom_icon='cp ~/.atom/packages/yosemite-unity-ui/icons/atom-yosemite.icns /Applications/Atom.app/Contents/Resources/atom.icns'
+alias b2d='boot2docker'
 alias bake='bundle exec rake'
 alias bi='bundle install'
 alias be='bundle exec'
