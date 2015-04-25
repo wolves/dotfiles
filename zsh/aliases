@@ -26,7 +26,7 @@ alias drop='cd ~/Dropbox'
 alias dsgn='cd ~/dsgn'
 alias elxr='cd ~/code/elixir'
 alias emi='em init --ir --css=false --js=coffee'
-alias Emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 alias fast='fastosphere'
 alias gad='git add .'
 alias gadu='git add -u .'
