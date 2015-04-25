@@ -72,4 +72,4 @@ PATH=/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$GOROOT/bin:$GOPATH/bin:
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby ruby-2.1.5
+chruby ruby-2.2.0
