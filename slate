@@ -57,9 +57,7 @@ alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 bind f:cmd;alt   ${full}
 
 # Focus Bindings
-bind 1:alt focus 'Emacs'
+bind 1:alt focus 'Atom'
 bind 2:alt focus 'Google Chrome'
 
 # Push & Resize Bindings
-
-
