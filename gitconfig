@@ -13,7 +13,8 @@
 	editor = vim --noplugin
 [apply]
 	whitespace = nowarn
-
+[commit]
+  template = ~/.gitmessage
 [alias]
       lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
       tags = for-each-ref --sort=taggerdate --format='%(refname:short)' refs/tags
@@ -29,3 +30,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[credential]
+	helper = cache --timeout=7200
