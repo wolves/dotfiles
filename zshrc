@@ -1,5 +1,5 @@
 #Set default editor to Vim
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/local/Cellar/emacs-mac/emacs-25.1-z-mac-6.1/bin/emacs
 
 ## Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gozilla"
+ZSH_THEME="cstingl"
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
@@ -64,17 +64,35 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
+. `brew --prefix`/etc/profile.d/z.sh
+
+
+# Meteor Local Packages
+export PACKAGE_DIRS="$HOME/code/meteor/packages"
+
+eval "$(direnv hook zsh)"
+
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# PATH THE THINGS
+
 # Boot2Docker
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/shinigami/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
-# Customize to your needs...
+# Go
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/code/go
 
-PATH=/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$GOROOT/bin:$GOPATH/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/MacOS/bin:$PATH
-
+# chruby
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby ruby-2.2.0
+
+# RAWR PATH
+export PATH=/usr/local/bin:/usr/local/sbin:./node_modules/.bin:$GOROOT/bin:$GOPATH/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
+# Yarn
+export PATH="$PATH:$HOME/.yarn/bin"
+
+chruby ruby-2.3.1
