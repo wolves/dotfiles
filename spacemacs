@@ -80,7 +80,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(move-dup
+   '(key-chord
+     move-dup
      org-projectile
      seeing-is-believing
      )
@@ -332,7 +333,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/themes/")
   (setup-indent 2)
   (setq-default
-
    ring-bell-function 'ignore
    require-final-newline t
    indent-tabs-mode nil
@@ -363,6 +363,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    tramp-copy-size-limit nil
    tramp-verbose 6
 
+   yas-snippet-dirs '("~/spacemacs.d/snippets")
    )
   )
 
@@ -386,6 +387,23 @@ you should place your code here."
   (dolist (e '(("xml" . web-mode)
                ("xinp" . web-mode))))
 
+  ;; Key-Chords
+  (key-chord-define-global "jj" 'avy-goto-word-1)
+  (key-chord-define-global "jl" 'avy-goto-line)
+  (key-chord-define-global "jk" 'avy-goto-char)
+  (key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
+  (key-chord-define-global "uu" 'undo-tree-visualize)
+  (key-chord-define-global "xx" 'execute-extended-command)
+  ;; (key-chord-define-global "yy" 'browse-kill-ring)
+
+  (defvar key-chord-tips '("Press <jj> quickly to jump to the beginning of a visible word."
+                           "Press <jl> quickly to jump to a visible line."
+                           "Press <jk> quickly to jump to a visible character."
+                           "Press <JJ> quickly to switch to previous buffer."
+                           "Press <uu> quickly to visualize the undo tree."
+                           "Press <xx> quickly to execute extended command."
+                           "Press <yy> quickly to browse the kill ring."))
+
   ;; Keymaps
   (global-set-key [f8] 'neotree-toggle)
   (global-set-key (kbd "C-s-p") 'md/move-lines-up)
@@ -406,6 +424,10 @@ you should place your code here."
         powerline-height 20
         spaceline-buffer-encoding-p nil
         spaceline-version-control-p nil)
+
+  ;;Yasnippets
+  (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand)
+  (define-key yas-minor-mode-map (kbd "TAB") 'yas-expand)
   )
 
 
@@ -418,7 +440,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (smex projectile-rails inflections feature-mode helm-dash dash-at-point fasd ibuffer-projectile helm helm-core helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag slack emojify circe oauth2 websocket seeing-is-believing Amelie-theme origami yaml-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht ggtags engine-mode spotify ob-elixir move-dup mmm-mode markdown-toc markdown-mode multi git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix flycheck diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip auto-yasnippet auto-dictionary alchemist company elixir-mode ac-ispell auto-complete xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake pug-mode pbcopy osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc htmlize haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help emmet-mode coffee-mode chruby bundler inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ projectile pkg-info epl google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line avy popup async quelpa package-build spacemacs-theme))))
+    (key-chord sql-indent smex projectile-rails inflections feature-mode helm-dash dash-at-point fasd ibuffer-projectile helm helm-core helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag slack emojify circe oauth2 websocket seeing-is-believing Amelie-theme origami yaml-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht ggtags engine-mode spotify ob-elixir move-dup mmm-mode markdown-toc markdown-mode multi git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix flycheck diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip auto-yasnippet auto-dictionary alchemist company elixir-mode ac-ispell auto-complete xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake pug-mode pbcopy osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc htmlize haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help emmet-mode coffee-mode chruby bundler inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ projectile pkg-info epl google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line avy popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
