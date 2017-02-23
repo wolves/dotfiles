@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -350,6 +351,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
    kept-old-versions 2
    make-backup-files nil
 
+   ;; Elm
+   elm-format-on-save t
+
    ;; Flycheck
    flycheck-check-syntax-automatically '(save mode-enabled)
 
@@ -414,6 +418,9 @@ you should place your code here."
   (global-set-key (kbd "s-U") 'md/duplicate-up)
   (global-set-key (kbd "s-D") 'md/duplicate-down)
 
+  ;; Ruby Encoding
+  (setq ruby-insert-encoding-magic-comment nil)
+
   ;; Seeing Is Believing
   (add-hook 'ruby-mode-hook 'seeing-is-believing)
 
@@ -429,8 +436,8 @@ you should place your code here."
         spaceline-version-control-p nil)
 
   ;;Yasnippets
-  (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand)
-  (define-key yas-minor-mode-map (kbd "TAB") 'yas-expand)
+  ;; (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand)
+  ;; (define-key yas-minor-mode-map (kbd "TAB") 'yas-expand)
   )
 
 
