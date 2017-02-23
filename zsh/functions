@@ -22,3 +22,6 @@ fe() { find . -type f -exec grep -n -H "$@" {} \;; }
 
 # Killing pumas! (Credit: Zander Hill)
 function kill_pumas() {pgrep puma | xargs kill -9}
+
+# will import a backup of the database, where $1 is the database name
+function impdb () pg_restore --verbose --clean --no-acl --no-owner -h localhost -U `whoami` -d $1 latest.dump
