@@ -68,7 +68,7 @@ source $HOME/.dotfiles/zsh/functions
 
 
 # Meteor Local Packages
-export PACKAGE_DIRS="$HOME/code/meteor/packages"
+export METEOR_PACKAGE_DIRS="$HOME/code/meteor/packages"
 
 eval "$(direnv hook zsh)"
 
