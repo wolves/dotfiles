@@ -418,6 +418,9 @@ you should place your code here."
   (global-set-key (kbd "s-U") 'md/duplicate-up)
   (global-set-key (kbd "s-D") 'md/duplicate-down)
 
+  ;; Projectile
+  (add-to-list 'projectile-globally-ignored-directories "node_modules")
+
   ;; Ruby Encoding
   (setq ruby-insert-encoding-magic-comment nil)
 
