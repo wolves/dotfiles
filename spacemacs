@@ -50,6 +50,7 @@ values."
      elixir
      elm
      emacs-lisp
+     erlang
      fasd
      git
      github
@@ -82,7 +83,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(key-chord
+   '(fancy-battery
+     key-chord
      move-dup
      org-projectile
      seeing-is-believing
@@ -158,16 +160,16 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes
-   '(Amelie gruvbox leuven spacemacs-dark spacemacs-light)
+   '(dracula leuven spacemacs-dark spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Code"
-                               :size 12
-                               :weight normal
+   dotspacemacs-default-font '("Operator Mono"
+                               :size 14
+                               :weight light
                                :width normal
-                               :powerline-scale 1.15)
+                               :powerline-scale 1.50)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -228,7 +230,7 @@ values."
    dotspacemacs-helm-no-header t
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
-   dotspacemacs-helm-position 'bottom
+   dotspacemacs-helm-position 'top
    ;; Controls fuzzy matching in helm. If set to `always', force fuzzy matching
    ;; in all non-asynchronous sources. If set to `source', preserve individual
    ;; source settings. Else, disable fuzzy matching in all sources.
@@ -251,14 +253,14 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup 'fullscreen
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -322,6 +324,7 @@ values."
   (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq web-mode-attr-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
   )
 
@@ -334,6 +337,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (add-to-list 'custom-theme-load-path "~/.spacemacs.d/themes/")
   (setup-indent 2)
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
+  ;; Fancy Battery
+  (add-hook 'after-init-hook #'fancy-battery-mode)
+  (spaceline-toggle-battery-on)
+
   (setq-default
    ring-bell-function 'ignore
    require-final-newline t
@@ -418,6 +430,9 @@ you should place your code here."
   (global-set-key (kbd "s-U") 'md/duplicate-up)
   (global-set-key (kbd "s-D") 'md/duplicate-down)
 
+  ;; Line height
+  (setq-default line-spacing 6)
+
   ;; Projectile
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
 
@@ -433,10 +448,10 @@ you should place your code here."
     (show-smartparens-global-mode -1))
 
   ;; Spaceline
-  (setq powerline-default-separator 'arrow
-        powerline-height 20
-        spaceline-buffer-encoding-p nil
-        spaceline-version-control-p nil)
+  (setq powerline-default-separator 'slant
+        spaceline-buffer-encoding-abbrev-p nil
+        spaceline-version-control-p nil
+        spaceline-erc-track-p nil)
 
   ;;Yasnippets
   ;; (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand)
@@ -453,7 +468,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-elm elm-mode key-chord sql-indent smex projectile-rails inflections feature-mode helm-dash dash-at-point fasd ibuffer-projectile helm helm-core helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag slack emojify circe oauth2 websocket seeing-is-believing Amelie-theme origami yaml-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht ggtags engine-mode spotify ob-elixir move-dup mmm-mode markdown-toc markdown-mode multi git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix flycheck diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip auto-yasnippet auto-dictionary alchemist company elixir-mode ac-ispell auto-complete xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake pug-mode pbcopy osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc htmlize haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help emmet-mode coffee-mode chruby bundler inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ projectile pkg-info epl google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line avy popup async quelpa package-build spacemacs-theme))))
+    (erlang flycheck-elm elm-mode key-chord sql-indent smex projectile-rails inflections feature-mode helm-dash dash-at-point fasd ibuffer-projectile helm helm-core helm-themes helm-swoop helm-spotify helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag slack emojify circe oauth2 websocket seeing-is-believing Amelie-theme origami yaml-mode magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht ggtags engine-mode spotify ob-elixir move-dup mmm-mode markdown-toc markdown-mode multi git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix flycheck diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company-quickhelp pos-tip auto-yasnippet auto-dictionary alchemist company elixir-mode ac-ispell auto-complete xterm-color web-mode web-beautify tagedit smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder rbenv rake pug-mode pbcopy osx-trash osx-dictionary orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode launchctl json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc htmlize haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help emmet-mode coffee-mode chruby bundler inf-ruby ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ projectile pkg-info epl google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line avy popup async quelpa package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -461,134 +476,134 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  )
 
-;;; Fira code Ligatures
-;; This works when using emacs --daemon + emacsclient
-(add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
-;; This works when using emacs without server/client
-(set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
-;; I haven't found one statement that makes both of the above situations work, so I use both for now
-(defconst fira-code-font-lock-keywords-alist
-  (mapcar (lambda (regex-char-pair)
-            `(,(car regex-char-pair)
-              (0 (prog1 ()
-                   (compose-region (match-beginning 1)
-                                   (match-end 1)
-                                   ;; The first argument to concat is a string containing a literal tab
-                                   ,(concat "	" (list (decode-char 'ucs (cadr regex-char-pair)))))))))
-          '(("\\(www\\)"                   #Xe100)
-            ("[^/]\\(\\*\\*\\)[^/]"        #Xe101)
-            ("\\(\\*\\*\\*\\)"             #Xe102)
-            ("\\(\\*\\*/\\)"               #Xe103)
-            ("\\(\\*>\\)"                  #Xe104)
-            ("[^*]\\(\\*/\\)"              #Xe105)
-            ("\\(\\\\\\\\\\)"              #Xe106)
-            ("\\(\\\\\\\\\\\\\\)"          #Xe107)
-            ("\\({-\\)"                    #Xe108)
-            ("\\(\\[\\]\\)"                #Xe109)
-            ("\\(::\\)"                    #Xe10a)
-            ("\\(:::\\)"                   #Xe10b)
-            ("[^=]\\(:=\\)"                #Xe10c)
-            ("\\(!!\\)"                    #Xe10d)
-            ("\\(!=\\)"                    #Xe10e)
-            ("\\(!==\\)"                   #Xe10f)
-            ("\\(-}\\)"                    #Xe110)
-            ("\\(--\\)"                    #Xe111)
-            ("\\(---\\)"                   #Xe112)
-            ("\\(-->\\)"                   #Xe113)
-            ("[^-]\\(->\\)"                #Xe114)
-            ("\\(->>\\)"                   #Xe115)
-            ("\\(-<\\)"                    #Xe116)
-            ("\\(-<<\\)"                   #Xe117)
-            ("\\(-~\\)"                    #Xe118)
-            ("\\(#{\\)"                    #Xe119)
-            ("\\(#\\[\\)"                  #Xe11a)
-            ("\\(##\\)"                    #Xe11b)
-            ("\\(###\\)"                   #Xe11c)
-            ("\\(####\\)"                  #Xe11d)
-            ("\\(#(\\)"                    #Xe11e)
-            ("\\(#\\?\\)"                  #Xe11f)
-            ("\\(#_\\)"                    #Xe120)
-            ("\\(#_(\\)"                   #Xe121)
-            ("\\(\\.-\\)"                  #Xe122)
-            ("\\(\\.=\\)"                  #Xe123)
-            ("\\(\\.\\.\\)"                #Xe124)
-            ("\\(\\.\\.<\\)"               #Xe125)
-            ("\\(\\.\\.\\.\\)"             #Xe126)
-            ("\\(\\?=\\)"                  #Xe127)
-            ("\\(\\?\\?\\)"                #Xe128)
-            ("\\(;;\\)"                    #Xe129)
-            ("\\(/\\*\\)"                  #Xe12a)
-            ("\\(/\\*\\*\\)"               #Xe12b)
-            ("\\(/=\\)"                    #Xe12c)
-            ("\\(/==\\)"                   #Xe12d)
-            ("\\(/>\\)"                    #Xe12e)
-            ("\\(//\\)"                    #Xe12f)
-            ("\\(///\\)"                   #Xe130)
-            ("\\(&&\\)"                    #Xe131)
-            ("\\(||\\)"                    #Xe132)
-            ("\\(||=\\)"                   #Xe133)
-            ("[^|]\\(|=\\)"                #Xe134)
-            ("\\(|>\\)"                    #Xe135)
-            ("\\(\\^=\\)"                  #Xe136)
-            ("\\(\\$>\\)"                  #Xe137)
-            ("\\(\\+\\+\\)"                #Xe138)
-            ("\\(\\+\\+\\+\\)"             #Xe139)
-            ("\\(\\+>\\)"                  #Xe13a)
-            ("\\(=:=\\)"                   #Xe13b)
-            ("[^!/]\\(==\\)[^>]"           #Xe13c)
-            ("\\(===\\)"                   #Xe13d)
-            ("\\(==>\\)"                   #Xe13e)
-            ("[^=]\\(=>\\)"                #Xe13f)
-            ("\\(=>>\\)"                   #Xe140)
-            ("\\(<=\\)"                    #Xe141)
-            ("\\(=<<\\)"                   #Xe142)
-            ("\\(=/=\\)"                   #Xe143)
-            ("\\(>-\\)"                    #Xe144)
-            ("\\(>=\\)"                    #Xe145)
-            ("\\(>=>\\)"                   #Xe146)
-            ("[^-=]\\(>>\\)"               #Xe147)
-            ("\\(>>-\\)"                   #Xe148)
-            ("\\(>>=\\)"                   #Xe149)
-            ("\\(>>>\\)"                   #Xe14a)
-            ("\\(<\\*\\)"                  #Xe14b)
-            ("\\(<\\*>\\)"                 #Xe14c)
-            ("\\(<|\\)"                    #Xe14d)
-            ("\\(<|>\\)"                   #Xe14e)
-            ("\\(<\\$\\)"                  #Xe14f)
-            ("\\(<\\$>\\)"                 #Xe150)
-            ("\\(<!--\\)"                  #Xe151)
-            ("\\(<-\\)"                    #Xe152)
-            ("\\(<--\\)"                   #Xe153)
-            ("\\(<->\\)"                   #Xe154)
-            ("\\(<\\+\\)"                  #Xe155)
-            ("\\(<\\+>\\)"                 #Xe156)
-            ("\\(<=\\)"                    #Xe157)
-            ("\\(<==\\)"                   #Xe158)
-            ("\\(<=>\\)"                   #Xe159)
-            ("\\(<=<\\)"                   #Xe15a)
-            ("\\(<>\\)"                    #Xe15b)
-            ("[^-=]\\(<<\\)"               #Xe15c)
-            ("\\(<<-\\)"                   #Xe15d)
-            ("\\(<<=\\)"                   #Xe15e)
-            ("\\(<<<\\)"                   #Xe15f)
-            ("\\(<~\\)"                    #Xe160)
-            ("\\(<~~\\)"                   #Xe161)
-            ("\\(</\\)"                    #Xe162)
-            ("\\(</>\\)"                   #Xe163)
-            ("\\(~@\\)"                    #Xe164)
-            ("\\(~-\\)"                    #Xe165)
-            ("\\(~=\\)"                    #Xe166)
-            ("\\(~>\\)"                    #Xe167)
-            ("[^<]\\(~~\\)"                #Xe168)
-            ("\\(~~>\\)"                   #Xe169)
-            ("\\(%%\\)"                    #Xe16a)
-            ;;("\\(x\\)"                     #Xe16b)
-            ("[^:=]\\(:\\)[^:=]"           #Xe16c)
-            ("[^\\+<>]\\(\\+\\)[^\\+<>]"   #Xe16d)
-            ("[^\\*/<>]\\(\\*\\)[^\\*/<>]" #Xe16f))))
+;; ;;; Fira code Ligatures
+;; ;; This works when using emacs --daemon + emacsclient
+;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
+;; ;; This works when using emacs without server/client
+;; (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
+;; ;; I haven't found one statement that makes both of the above situations work, so I use both for now
+;; (defconst fira-code-font-lock-keywords-alist
+;;   (mapcar (lambda (regex-char-pair)
+;;             `(,(car regex-char-pair)
+;;               (0 (prog1 ()
+;;                    (compose-region (match-beginning 1)
+;;                                    (match-end 1)
+;;                                    ;; The first argument to concat is a string containing a literal tab
+;;                                    ,(concat "	" (list (decode-char 'ucs (cadr regex-char-pair)))))))))
+;;           '(("\\(www\\)"                   #Xe100)
+;;             ("[^/]\\(\\*\\*\\)[^/]"        #Xe101)
+;;             ("\\(\\*\\*\\*\\)"             #Xe102)
+;;             ("\\(\\*\\*/\\)"               #Xe103)
+;;             ("\\(\\*>\\)"                  #Xe104)
+;;             ("[^*]\\(\\*/\\)"              #Xe105)
+;;             ("\\(\\\\\\\\\\)"              #Xe106)
+;;             ("\\(\\\\\\\\\\\\\\)"          #Xe107)
+;;             ("\\({-\\)"                    #Xe108)
+;;             ("\\(\\[\\]\\)"                #Xe109)
+;;             ("\\(::\\)"                    #Xe10a)
+;;             ("\\(:::\\)"                   #Xe10b)
+;;             ("[^=]\\(:=\\)"                #Xe10c)
+;;             ("\\(!!\\)"                    #Xe10d)
+;;             ("\\(!=\\)"                    #Xe10e)
+;;             ("\\(!==\\)"                   #Xe10f)
+;;             ("\\(-}\\)"                    #Xe110)
+;;             ("\\(--\\)"                    #Xe111)
+;;             ("\\(---\\)"                   #Xe112)
+;;             ("\\(-->\\)"                   #Xe113)
+;;             ("[^-]\\(->\\)"                #Xe114)
+;;             ("\\(->>\\)"                   #Xe115)
+;;             ("\\(-<\\)"                    #Xe116)
+;;             ("\\(-<<\\)"                   #Xe117)
+;;             ("\\(-~\\)"                    #Xe118)
+;;             ("\\(#{\\)"                    #Xe119)
+;;             ("\\(#\\[\\)"                  #Xe11a)
+;;             ("\\(##\\)"                    #Xe11b)
+;;             ("\\(###\\)"                   #Xe11c)
+;;             ("\\(####\\)"                  #Xe11d)
+;;             ("\\(#(\\)"                    #Xe11e)
+;;             ("\\(#\\?\\)"                  #Xe11f)
+;;             ("\\(#_\\)"                    #Xe120)
+;;             ("\\(#_(\\)"                   #Xe121)
+;;             ("\\(\\.-\\)"                  #Xe122)
+;;             ("\\(\\.=\\)"                  #Xe123)
+;;             ("\\(\\.\\.\\)"                #Xe124)
+;;             ("\\(\\.\\.<\\)"               #Xe125)
+;;             ("\\(\\.\\.\\.\\)"             #Xe126)
+;;             ("\\(\\?=\\)"                  #Xe127)
+;;             ("\\(\\?\\?\\)"                #Xe128)
+;;             ("\\(;;\\)"                    #Xe129)
+;;             ("\\(/\\*\\)"                  #Xe12a)
+;;             ("\\(/\\*\\*\\)"               #Xe12b)
+;;             ("\\(/=\\)"                    #Xe12c)
+;;             ("\\(/==\\)"                   #Xe12d)
+;;             ("\\(/>\\)"                    #Xe12e)
+;;             ("\\(//\\)"                    #Xe12f)
+;;             ("\\(///\\)"                   #Xe130)
+;;             ("\\(&&\\)"                    #Xe131)
+;;             ("\\(||\\)"                    #Xe132)
+;;             ("\\(||=\\)"                   #Xe133)
+;;             ("[^|]\\(|=\\)"                #Xe134)
+;;             ("\\(|>\\)"                    #Xe135)
+;;             ("\\(\\^=\\)"                  #Xe136)
+;;             ("\\(\\$>\\)"                  #Xe137)
+;;             ("\\(\\+\\+\\)"                #Xe138)
+;;             ("\\(\\+\\+\\+\\)"             #Xe139)
+;;             ("\\(\\+>\\)"                  #Xe13a)
+;;             ("\\(=:=\\)"                   #Xe13b)
+;;             ("[^!/]\\(==\\)[^>]"           #Xe13c)
+;;             ("\\(===\\)"                   #Xe13d)
+;;             ("\\(==>\\)"                   #Xe13e)
+;;             ("[^=]\\(=>\\)"                #Xe13f)
+;;             ("\\(=>>\\)"                   #Xe140)
+;;             ("\\(<=\\)"                    #Xe141)
+;;             ("\\(=<<\\)"                   #Xe142)
+;;             ("\\(=/=\\)"                   #Xe143)
+;;             ("\\(>-\\)"                    #Xe144)
+;;             ("\\(>=\\)"                    #Xe145)
+;;             ("\\(>=>\\)"                   #Xe146)
+;;             ("[^-=]\\(>>\\)"               #Xe147)
+;;             ("\\(>>-\\)"                   #Xe148)
+;;             ("\\(>>=\\)"                   #Xe149)
+;;             ("\\(>>>\\)"                   #Xe14a)
+;;             ("\\(<\\*\\)"                  #Xe14b)
+;;             ("\\(<\\*>\\)"                 #Xe14c)
+;;             ("\\(<|\\)"                    #Xe14d)
+;;             ("\\(<|>\\)"                   #Xe14e)
+;;             ("\\(<\\$\\)"                  #Xe14f)
+;;             ("\\(<\\$>\\)"                 #Xe150)
+;;             ("\\(<!--\\)"                  #Xe151)
+;;             ("\\(<-\\)"                    #Xe152)
+;;             ("\\(<--\\)"                   #Xe153)
+;;             ("\\(<->\\)"                   #Xe154)
+;;             ("\\(<\\+\\)"                  #Xe155)
+;;             ("\\(<\\+>\\)"                 #Xe156)
+;;             ("\\(<=\\)"                    #Xe157)
+;;             ("\\(<==\\)"                   #Xe158)
+;;             ("\\(<=>\\)"                   #Xe159)
+;;             ("\\(<=<\\)"                   #Xe15a)
+;;             ("\\(<>\\)"                    #Xe15b)
+;;             ("[^-=]\\(<<\\)"               #Xe15c)
+;;             ("\\(<<-\\)"                   #Xe15d)
+;;             ("\\(<<=\\)"                   #Xe15e)
+;;             ("\\(<<<\\)"                   #Xe15f)
+;;             ("\\(<~\\)"                    #Xe160)
+;;             ("\\(<~~\\)"                   #Xe161)
+;;             ("\\(</\\)"                    #Xe162)
+;;             ("\\(</>\\)"                   #Xe163)
+;;             ("\\(~@\\)"                    #Xe164)
+;;             ("\\(~-\\)"                    #Xe165)
+;;             ("\\(~=\\)"                    #Xe166)
+;;             ("\\(~>\\)"                    #Xe167)
+;;             ("[^<]\\(~~\\)"                #Xe168)
+;;             ("\\(~~>\\)"                   #Xe169)
+;;             ("\\(%%\\)"                    #Xe16a)
+;;             ;;("\\(x\\)"                     #Xe16b)
+;;             ("[^:=]\\(:\\)[^:=]"           #Xe16c)
+;;             ("[^\\+<>]\\(\\+\\)[^\\+<>]"   #Xe16d)
+;;             ("[^\\*/<>]\\(\\*\\)[^\\*/<>]" #Xe16f))))
 
-(defun add-fira-code-symbol-keywords ()
-  (font-lock-add-keywords nil fira-code-font-lock-keywords-alist))
+;; (defun add-fira-code-symbol-keywords ()
+;;   (font-lock-add-keywords nil fira-code-font-lock-keywords-alist))
 
-(add-hook 'prog-mode-hook
-          #'add-fira-code-symbol-keywords)
+;; (add-hook 'prog-mode-hook
+;;           #'add-fira-code-symbol-keywords)
