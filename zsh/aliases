@@ -6,13 +6,12 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
-alias aliases='code ~/.dotfiles/zsh/aliases'
-alias atom_icon='cp ~/.atom/packages/yosemite-unity-ui/icons/atom-yosemite.icns /Applications/Atom.app/Contents/Resources/atom.icns'
+alias aliases='emacs ~/.dotfiles/zsh/aliases'
+alias b='buffalo'
 alias bake='bundle exec rake'
 alias b2d='boot2docker'
 alias bi='bundle install'
 alias be='bundle exec'
-alias bower='noglob bower'
 alias brc='brew clean'
 alias bri='brew install'
 alias bro='brew outdated'
@@ -20,13 +19,9 @@ alias bru='brew update'
 alias brug='brew upgrade'
 alias c='cd'
 alias debug='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222'
-alias cism="cd ~/code/exercism/"
+alias cism="cd ~/exercism/"
 alias cde='cd ~/code'
-alias core='cd ~/code/corevist/core'
-alias cv='cd ~/code/corevist/'
 alias d='cd ~/.dotfiles'
-alias deb='cd ~/code/debatable/'
-alias demo='cd ~/code/meetup/demos'
 alias dox='cd ~/dox'
 alias dm='docker-machine'
 alias dm_clean_minutes="docker ps -a | grep 'minutes ago' | awk '{print $1}' | xargs docker rm"
@@ -40,10 +35,12 @@ alias dsgn='cd ~/dsgn'
 alias e='elixir'
 alias egg='cd ~/code/_learn/egg'
 alias elxr='cd ~/code/elixir'
-alias emi='em init --ir --css=false --js=coffee'
-alias emacs="/usr/local/Cellar/emacs-mac/emacs-25.1-z-mac-6.1/bin/emacs -nw"
 alias f='docker-compose'
-alias fast='fastosphere'
+alias fix_naga='defaults write com.blizzard.worldofwarcraft disable-expose-fix -bool YES'
+
+#---------------------
+#---- GIT ALIASES ----
+#---------------------
 alias gad='git add .'
 alias gadu='git add -u .'
 alias gbc='git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d'
@@ -66,29 +63,20 @@ alias grc='git rebase --continue'
 alias gs='git status --short --branch'
 alias hpush='git push heroku'
 alias git='hub'
+
 alias ick='ack -i --pager="less -R -S -X"'
 alias md='mkdir'
 alias m='meteor'
 alias mm='middleman'
-alias mi='em init --ir --css=sass --js=coffee'
-alias mps='mix phoenix.server'
+alias mps='mix phx.server'
 alias ni='npm install'
 alias nu='npm uninstall'
-alias note='vim ~/notes/scratchpad.txt'
-alias notes="cd ~/notes"
+# alias note='vim ~/notes/scratchpad.txt'
 alias nuke_gems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
-alias peep='cd ~/_learn/videos/PeepCode'
 alias r='rails'
 alias rc='rails console'
 alias rdm="be rake db:migrate"
 alias rdtp="be rake db:test:prepare"
 alias rip_tags="ripper-tags -R -f TAGS"
-alias rpsites="cd /usr/local/etc/nginx/sites"
+alias slate='subl ~/.slate'
 alias so='source ~/.dotfiles/zsh/aliases'
-alias sts='bundle exec guard -i -g server 2>&1'
-alias talks="cd ~/talks"
-alias v='vim'
-alias v.='vim .'
-alias vi='vim'
-
-alias rrp='RAILS_SERVE_STATIC_FILES=true SECRET_KEY_BASE=asdf RAILS_ENV=production rails s'
