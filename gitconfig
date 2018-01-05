@@ -32,3 +32,5 @@
 	smudge = git-media-smudge %f
 [credential]
 	helper = cache --timeout=7200
+[github]
+	token = 88efce84917fef7fff1276f9fe0245a824d2365e
