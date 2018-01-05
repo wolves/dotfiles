@@ -2,4 +2,6 @@
 
 Config files for my personal system setup.
 
-Heavily inspired by [Ben Orenstein's dotfiles](https://github.com/r00k/dotfiles), while I learn.
+`rake install` to add dotfiles to user $HOME
+
+Heavily inspired by [Ben Orenstein's dotfiles](https://github.com/r00k/dotfiles)
