@@ -1,5 +1,5 @@
 #Set default editor to Vim
-export EDITOR=/usr/local/Cellar/emacs-mac/emacs-25.1-z-mac-6.1/bin/emacs
+export EDITOR=/usr/local/bin/emacs
 
 ## Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
