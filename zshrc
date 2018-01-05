@@ -58,6 +58,9 @@ stty stop undef
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(bundler git)
 
+# IEx Opts
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 source $ZSH/oh-my-zsh.sh
 
 # Source my custom files after oh-my-zsh so I can override things.
