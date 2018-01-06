@@ -64,6 +64,8 @@ alias gs='git status --short --branch'
 alias hpush='git push heroku'
 alias git='hub'
 
+alias gg='cd $GOPATH/src/github.com/wolves/'
+
 alias ick='ack -i --pager="less -R -S -X"'
 alias md='mkdir'
 alias m='meteor'
@@ -80,3 +82,5 @@ alias rdtp="be rake db:test:prepare"
 alias rip_tags="ripper-tags -R -f TAGS"
 alias slate='subl ~/.slate'
 alias so='source ~/.dotfiles/zsh/aliases'
+alias ya='yarn add'
+alias yr='yarn remove'
