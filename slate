@@ -59,8 +59,8 @@ bind f:cmd;alt   ${full}
 # Focus Bindings
 # bind 1:alt focus 'Atom'
 bind `:alt focus 'iTerm'
-bind 1:alt focus 'Code'
-bind 2:alt focus 'Google Chrome'
+bind 1:alt focus 'Emacs'
+bind 2:alt focus 'Firefox'
 bind 3:alt focus 'VLC'
 
 # Push & Resize Bindings
