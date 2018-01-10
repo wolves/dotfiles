@@ -1,16 +1,16 @@
 # PATH THE THINGS
 
-# Boot2Docker
-export DOCKER_HOST="tcp://192.168.59.103:2376"
-export DOCKER_CERT_PATH="/Users/shinigami/.boot2docker/certs/boot2docker-vm"
-export DOCKER_TLS_VERIFY=1
-
 # Go
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/code/go"
+export BUFFALO_PLUGIN_PATH="$GOPATH/bin"
 export GOENG="$HOME/go_appengine"
-export PATH="$HOME/code/go/bin:$PATH"
-export PATH="$GOENG:$PATH"
+export PATH="$PATH:$GOROOT/bin"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOENG"
+
+# N - Node Manager
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Node / NPM
 export NPMPATH="./node_modules/.bin:/usr/local/share/npm/bin"
