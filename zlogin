@@ -3,7 +3,8 @@ function precmd {
   ver=("${(s/ /)ruby}")
   node=$(node --version)
   # export RPROMPT='%{$fg[red]%}$ver[2]%{$reset_color%} | %{$fg[green]%}$node%{$reset_color%} %t%'
-  export RPROMPT='%t%'
+  export RPROMPT='%{$fg[red]%}$ver[2]%{$reset_color%}%t%'
+  # export RPROMPT='%t%'
 }
 
 # go to saved path if there is one
