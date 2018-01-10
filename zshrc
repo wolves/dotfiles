@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cstingl-agnoster"
+# ZSH_THEME="cstingl-agnoster"
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
@@ -57,6 +57,27 @@ stty stop undef
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(bundler git)
+
+# GO POWERLINE
+
+function powerline_precmd() {
+    PS1="$(~/code/go/bin/powerline-go -error $? -modules "venv,ssh,cwd,perms,git,hg,jobs,exit,root" -cwd-max-depth 4 -max-width 20 -shell zsh)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
+##############
 
 # IEx Opts
 export ERL_AFLAGS="-kernel shell_history enabled"
